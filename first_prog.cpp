@@ -80,7 +80,47 @@ class SET {
         cout << new_array3[i] << " ";
         cout << "}\n";
         cout <<endl;
-        
+    }
+
+    //Perform Intersection function
+    void Intersection(int *arrA, int len_A, int *arrB, int len_B){
+        vector<int> new_array4;
+        vector<int> arrC;
+        for (int i = 0; i < len_A; i++){
+            arrC.push_back(arrA[i]);
+        }
+        for (int i = 0; i < len_B; i++){
+            auto it = find(arrC.begin(), arrC.end(), arrB[i]);
+            if (it != arrC.end()){
+                new_array4.push_back(arrB[i]);
+            }else{
+                continue;
+            }
+        }
+        int len_C = new_array4.size();
+        cout << "Displaying Union of sets : \n\n" << "{ ";
+        for (i = 0; i < len_C; i++)
+        cout << new_array4[i] << " ";
+        cout << "}\n";
+        cout <<endl;
+    }
+
+    // Perform Complement function
+    void Complement(int *arrA, int len_A, int *arrB, int len_B){
+        vector<int> universal_set;
+        int len_usl, element, choice;
+        cout << "Create your Universal set : \n" << "Please enter the number of element : ";
+        cin >> len_usl;
+        for (int i = 0; i < len_usl; i++){
+            cout << "Please enter the element : ";
+            cin >> element;
+            universal_set.push_back(element);
+        }
+        cout << "Which set are you going to use : \n" << "1. Set A \t\t\t 2. Set B";
+        cin >> choice;
+        if (choice == 1){
+            
+        }
     }
 };
 
@@ -161,6 +201,20 @@ int main() {
         }else if (user_input == 4){
             for (int i = 0;i < 70; i++) cout << "_ "; cout << "\n\n";
             obj.Union(arrA, len_A, arrB, len_B);
+            for (int i = 0;i < 70; i++) cout << "_ "; cout << "\n\n";
+            break;
+
+            // Perform Intersection function
+        }else if (user_input == 5){
+            for (int i = 0;i < 70; i++) cout << "_ "; cout << "\n\n";
+            obj.Intersection(arrA, len_A, arrB, len_B);
+            for (int i = 0;i < 70; i++) cout << "_ "; cout << "\n\n";
+            break;
+
+            // Perform Complement
+        }else if (user_input == 6){
+            for (int i = 0;i < 70; i++) cout << "_ "; cout << "\n\n";
+            obj.Complement(arrA, len_A, arrB, len_B);
             for (int i = 0;i < 70; i++) cout << "_ "; cout << "\n\n";
             break;
         }
